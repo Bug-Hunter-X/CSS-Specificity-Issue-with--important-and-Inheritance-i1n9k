@@ -1,0 +1,17 @@
+The following CSS code snippet demonstrates an uncommon bug related to specificity and inheritance:
+
+```css
+.parent {
+  font-size: 16px;
+}
+
+.child {
+  font-size: 20px !important;
+}
+
+.child p {
+  font-size: 18px;
+}
+```
+
+The `!important` declaration on `.child` overrides the `font-size` set on `.parent`. However, the `font-size` on `.child p` is intended to make paragraph text slightly smaller than the `.child` element.  The unexpected behavior is that the `font-size: 18px` within `.child p` doesn't override the `font-size: 20px !important` set on its parent, `.child`, even though it's more specific.
