@@ -1,0 +1,17 @@
+The solution avoids using `!important` and utilizes a more effective approach to manage the specificity conflict:
+
+```css
+.parent {
+  font-size: 16px;
+}
+
+.child {
+  font-size: 20px;
+}
+
+.child p {
+  font-size: 18px;
+}
+```
+
+By removing `!important` from `.child`, the more specific selector `.child p` correctly overrides the `font-size` of its parent. This approach is clearer, more maintainable, and prevents unexpected behavior caused by `!important`.
